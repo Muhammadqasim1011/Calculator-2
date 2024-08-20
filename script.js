@@ -1,6 +1,6 @@
 let buttons = document.querySelectorAll(".button");
 let string = "";
-let operators = ['+', '-', '*', '/', '%', '.', '=']
+let operators = ["+", "-", "*", "/", "%", ".", "="];
 
 Array.from(buttons).forEach((button) => {
   button.addEventListener("click", (e) => {
@@ -28,19 +28,19 @@ Array.from(buttons).forEach((button) => {
     ) {
       alert("Syntax Error");
       document.querySelector("input").value = string;
-    }
-    else if (
-      e.target.innerHTML == "." &&
-      string.split(/[+\-*/%]/).pop().includes(".")
-    ) {
-      alert("Syntax Error: More than one dot in the number");
+    } else if (e.target.innerHTML === ".") {
+      if (string === "") {
+        string = "0.";
+      } else {
+        let lastSegment = string.split(/[+\-*/%]/).pop();
+        if (!lastSegment.includes(".")) {
+          string += ".";
+        }
+      }
       document.querySelector("input").value = string;
-    }
-    else {
+    } else {
       string += e.target.innerHTML;
       document.querySelector("input").value = string;
     }
   });
 });
-
-
