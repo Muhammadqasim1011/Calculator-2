@@ -5,8 +5,8 @@
     user-select: none;
     font-family: sans-serif;
 }
-.button {
-    aspect-ratio: 1;
+.button, .reset {
+    height: 70px;
     margin:0 3px;
     border: 2px solid rgb(31, 17, 121);
     border-radius: 10px;
@@ -51,10 +51,47 @@ h1{
 }
 
 .bg-red{
-    background: rgb(255, 17, 0);
-    border-color: rgb(113, 8, 0);
+    background: rebeccapurple;
+    border-color: rgb(128, 0, 128);
 }
 
 .bg-red:hover {
-    background: rgb(144, 0, 0);
+    background: rgb(128, 0, 128);
+}
+
+.history-container {
+    grid-column: span 4;
+    margin-top: 20px;
+    border: 2px solid #1f1179;
+    border-radius: 10px;
+    background: rgb(240, 240, 255);
+    padding: 10px;
+    /* max-height: 150px; */
+    /* overflow-y: auto; */
+}
+
+.history-container h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    color: rgb(31, 17, 121);
+}
+
+.history {
+    font-size: 1.2rem;
+    color: rgb(31, 17, 121);
+}
+
+.history-entry {
+    margin-bottom: 5px;
+}
+
+.reset{
+    grid-column: span 4;
+    height: 70px;
+    background: rebeccapurple;
+}
+
+.reset:hover{
+    background: rgb(128, 0, 128);
 }
