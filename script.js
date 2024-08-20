@@ -1,5 +1,6 @@
 let buttons = document.querySelectorAll(".button");
 let string = "";
+let operators = ['+', '-', '*', '/', '%', '.', '=']
 
 Array.from(buttons).forEach((button) => {
   button.addEventListener("click", (e) => {
@@ -22,30 +23,20 @@ Array.from(buttons).forEach((button) => {
       string = 0;
       document.querySelector("input").value = string;
     } else if (
-      (e.target.innerHTML == "+" ||
-        e.target.innerHTML == "-" ||
-        e.target.innerHTML == "*" ||
-        e.target.innerHTML == "/" ||
-        e.target.innerHTML == "%" ||
-        e.target.innerHTML == "=" ||
-        e.target.innerHTML == ".") &&
-      (string[string.length - 1] == "+" ||
-        string[string.length - 1] == "-" ||
-        string[string.length - 1] == "*" ||
-        string[string.length - 1] == "/" ||
-        string[string.length - 1] == "%" ||
-        string[string.length - 1] == ".")
+      operators.includes(e.target.innerHTML) &&
+      operators.includes(string[string.length - 1])
     ) {
-      alert("Syntex Error");
+      alert("Syntax Error");
       document.querySelector("input").value = string;
-    }else if (
+    }
+    else if (
       e.target.innerHTML == "." &&
       string.split(/[+\-*/%]/).pop().includes(".")
     ) {
       alert("Syntax Error: More than one dot in the number");
       document.querySelector("input").value = string;
     }
-     else {
+    else {
       string += e.target.innerHTML;
       document.querySelector("input").value = string;
     }
